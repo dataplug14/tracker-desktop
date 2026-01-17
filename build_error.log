@@ -1,0 +1,334 @@
+﻿
+> vtc-tracker-desktop@1.0.0 tauri
+> tauri build --verbose
+
+node.exe :        
+Debug [tauri_cli::hel
+pers::app_paths] 
+Found Tauri project 
+inside C:\Users\richs
+\Desktop\tracker\trac
+ker-desktop\src-tauri
+ on early lookup
+At line:1 char:1
++ & "C:\Program Files
+\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (          
+ Debug [t...on ea    
+rly lookup:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+        Info 
+[tauri_cli::build] 
+Looking up installed 
+tauri packages to 
+check mismatched 
+versions...
+     Running 
+[tauri_cli::helpers] 
+beforeBuildCommand 
+`npm run build`
+       Debug 
+[tauri_cli::helpers] 
+Setting environment 
+for hook 
+{"TAURI_ENV_FAMILY": 
+"windows", "TAURI_ENV
+_TARGET_TRIPLE": "x86
+_64-pc-windows-msvc",
+ "TAURI_ENV_PLATFORM_
+VERSION": 
+"10.0.26200", 
+"TAURI_ENV_ARCH": 
+"x86_64", "TAURI_ENV_
+PLATFORM": "windows"}
+     Running 
+[tauri_cli] Command 
+`cmd /S /C npm run 
+build`
+
+> vtc-tracker-desktop@1.0.0 build
+> vite build
+
+[36mvite v6.4.1 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 1589 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                 [39m[1m[2m  0.99 kB[22m[1m[22m[2m Γöé gzip:  0.54 kB[22m
+[2mdist/[22m[35massets/index-s0brGMpL.css  [39m[1m[2m  4.44 kB[22m[1m[22m[2m Γöé gzip:  1.38 kB[22m
+[2mdist/[22m[36massets/index-h3mu4jy-.js   [39m[1m[2m216.08 kB[22m[1m[22m[2m Γöé gzip: 66.51 kB[22m
+[32mΓ£ô built in 6.80s[39m
+     Running 
+[tauri_cli] Command 
+`cargo build --bins 
+--features tauri/cust
+om-protocol 
+--release`
+   Compiling 
+vtc-tracker-desktop 
+v1.0.0 (C:\Users\rich
+s\Desktop\tracker\tra
+cker-desktop\src-taur
+i)
+warning: unused 
+import: `error`
+ --> src\sync.rs:6:21
+  |
+6 | use 
+tracing::{info, 
+error, debug};
+  |                  
+   ^^^^^
+  |
+  = note: `#[warn(unu
+sed_imports)]` (part 
+of 
+`#[warn(unused)]`) 
+on by default
+
+warning: unused 
+imports: `debug` and 
+`error`
+ --> 
+src\telemetry.rs:7:21
+  |
+7 | use 
+tracing::{info, 
+debug, error};
+  |                  
+   ^^^^^  ^^^^^
+
+warning: unused 
+import: 
+`FILE_MAP_ALL_ACCESS`
+  --> src\telemetry.r
+s:13:70
+   |
+13 |     
+OpenFileMappingA, 
+MapViewOfFile, 
+UnmapViewOfFile, 
+FILE_MAP_READ, 
+FILE_MAP_ALL_ACCESS,
+   |                 
+                     
+                     
+           
+^^^^^^^^^^^^^^^^^^^
+
+warning: unused 
+import: `Deserialize`
+ --> 
+src\commands.rs:6:13
+  |
+6 | use 
+serde::{Deserialize, 
+Serialize};
+  |             
+^^^^^^^^^^^
+
+warning: unused 
+variable: 
+`state_handle`
+   --> 
+src\commands.rs:166:9
+    |
+166 |     let 
+state_handle = state.
+inner().clone(); // 
+AppState likely 
+needs to be Clone or 
+wrapped in Arc? 
+    |         
+^^^^^^^^^^^^ help: 
+if this is 
+intentional, prefix 
+it with an 
+underscore: 
+`_state_handle`
+    |
+    = note: `#[warn(u
+nused_variables)]` 
+(part of 
+`#[warn(unused)]`) 
+on by default
+
+warning: field 
+`job_started` is 
+never read
+  --> 
+src\telemetry.rs:91:5
+   |
+85 | pub struct 
+TelemetryReader {
+   |            
+--------------- 
+field in this struct
+...
+91 |     
+job_started: bool,
+   |     ^^^^^^^^^^^
+   |
+   = note: 
+`#[warn(dead_code)]` 
+(part of 
+`#[warn(unused)]`) 
+on by default
+
+warning: unused 
+`Result` that must 
+be used
+   --> src\telemetry.
+rs:140:25
+    |
+140 |                
+         
+CloseHandle(handle);
+    |                
+         
+^^^^^^^^^^^^^^^^^^^
+    |
+    = note: this 
+`Result` may be an 
+`Err` variant, which 
+should be handled
+    = note: `#[warn(u
+nused_must_use)]` 
+(part of 
+`#[warn(unused)]`) 
+on by default
+help: use `let _ = 
+...` to ignore the 
+resulting value
+    |
+140 |                
+         let _ = 
+CloseHandle(handle);
+    |                
+         +++++++
+
+warning: call to 
+`.clone()` on a 
+reference in this 
+situation does 
+nothing
+   --> src\commands.r
+s:166:37
+    |
+166 |     let 
+state_handle = state.
+inner().clone(); // 
+AppState likely 
+needs to be Clone or 
+wrapped in Arc? 
+    |                
+                     
+^^^^^^^^
+    |
+    = note: the type 
+`AppState` does not 
+implement `Clone`, 
+so calling `clone` 
+on `&AppState` 
+copies the 
+reference, which 
+does not do anything 
+and can be removed
+    = note: `#[warn(n
+oop_method_call)]` 
+on by default
+help: remove this 
+redundant call
+    |
+166 -     let 
+state_handle = state.
+inner().clone(); // 
+AppState likely 
+needs to be Clone or 
+wrapped in Arc? 
+166 +     let 
+state_handle = 
+state.inner(); // 
+AppState likely 
+needs to be Clone or 
+wrapped in Arc? 
+    |
+help: if you meant 
+to clone `AppState`, 
+implement `Clone` 
+for it
+   --> 
+src\lib.rs:19:1
+    |
+ 19 + 
+#[derive(Clone)]
+ 20 | pub struct 
+AppState {
+    |
+
+warning: `vtc-tracker
+-desktop` (lib) 
+generated 8 warnings 
+(run `cargo fix 
+--lib -p 
+vtc-tracker-desktop` 
+to apply 6 
+suggestions)
+warning: unused 
+import: 
+`std::sync::Mutex`
+  --> 
+src\main.rs:11:5
+   |
+11 | use 
+std::sync::Mutex;
+   |     
+^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(un
+used_imports)]` 
+(part of 
+`#[warn(unused)]`) 
+on by default
+
+warning: `vtc-tracker
+-desktop` (bin "vtc-t
+racker-desktop") 
+generated 1 warning 
+(run `cargo fix 
+--bin "vtc-tracker-de
+sktop" -p 
+vtc-tracker-desktop` 
+to apply 1 
+suggestion)
+error: failed to 
+remove file `C:\Users
+\richs\Desktop\tracke
+r\tracker-desktop\src
+-tauri\target\release
+\vtc-tracker-desktop.
+exe`
+
+Caused by:
+  Access is denied. 
+(os error 5)
+failed to build app: 
+failed to build app
+       Error 
+[tauri_cli_node] 
+failed to build app: 
+failed to build app
